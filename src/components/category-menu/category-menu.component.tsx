@@ -11,7 +11,7 @@ const CategoryMenu = () => {
         id: 1,
         title: 'New',
         subtitle: 'Shop the latest releases',
-        imageUrl: '/category-covers/new-cover.jpg'
+        imageUrl: '/category-covers/new-cover.png'
       },
       {
         id: 2,
@@ -29,7 +29,7 @@ const CategoryMenu = () => {
         id: 4,
         title: 'DC',
         subtitle: 'Shop all DC Comics',
-        imageUrl: '/category-covers/dc-cover.jpg'
+        imageUrl: '/category-covers/dc-cover.jpeg'
       },
       {
         id: 5,
