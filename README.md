@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Production-Typescript-React-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a sample of a production scale Typescript + React application.
 
-## Available Scripts
+## General Information
 
-In the project directory, you can run:
+I used the following course to help create this application:
 
-### `npm start`
+- [Complete React Developer in 2022](https://deloittedevelopment.udemy.com/course/complete-react-developer-zero-to-mastery/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Typescript React App](#Typescript-React-App)
+  - [General Information](#general-information)
+  - [Table of Contents](#table-of-contents)
+  - [Technology Used](#technology-used)
+  - [Setup](#setup)
+    - [Run](#run)
+    - [Build](#build)
+  - [Acknowledgements](#acknowledgements)
 
-### `npm test`
+## Technology Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `testing-library/jest-dom`: ^5.16.3
+- `testing-library/react`: ^12.1.4
+- `testing-library/user-event`: ^13.5.0
+- `types/jest`: ^27.4.1
+- `types/node`: ^16.11.26
+- `types/react`: ^18.0.5
+- `types/react-dom`: ^18.0.1
+- `react`: ^18.0.0`
+- `react-dom`: ^18.0.0`
+- `react-scripts`: 5.0.0`
+- `typescript`: ^4.6.3`
+- `web-vitals`: ^2.1.4
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To be continued
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd ./crwn-clothing-v2-typescript
+npm install
+npm run
+```
 
-### `npm run eject`
+This will then launch the application within the native web browser on your computer.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Build
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+cd ./crwn-clothing-v2-typescript
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+npm install
+npm run build
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Acknowledgements
 
-## Learn More
+This simple application was made whilst following the Udemy course below - but modified to be typescript instead of plain js.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Complete React Developer in 2022](https://deloittedevelopment.udemy.com/course/complete-react-developer-zero-to-mastery/)
+- [Create React App](https://github.com/facebook/create-react-app).
