@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App() {
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="categories-container">
+      <div className="category-container">
+        {/* <img/> */}
+        <div className="category-body-container">
+          <h2>New</h2>
+          <p>Shop Now</p>
+        </div>
+      </div>
+      <div className="category-container">
+        {/* <img/> */}
+        <div className="category-body-container">
+          <h2>Spiderman</h2>
+          <p>Shop Now</p>
+        </div>
+      </div>
+      <div className="category-container">
+        {/* <img/> */}
+        <div className="category-body-container">
+          <h2>Batman</h2>
+          <p>Shop Now</p>
+        </div>
+      </div>
+      <div className="category-container">
+        {/* <img/> */}
+        <div className="category-body-container">
+          <h2>DC</h2>
+          <p>Shop Now</p>
+        </div>
+      </div>
+      <div className="category-container">
+        {/* <img/> */}
+        <div className="category-body-container">
+          <h2>Marvel</h2>
+          <p>Shop Now</p>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

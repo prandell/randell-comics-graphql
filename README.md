@@ -1,6 +1,6 @@
-# Production-Typescript-React-App
+# React-Comic-Shop
 
-This project is a sample of a production scale Typescript + React application.
+This is a sample production-scale Comic Book shop website built using React + Typescript
 
 ## General Information
 
