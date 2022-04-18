@@ -14,7 +14,7 @@ const NavigationBar = () => {
             src={'randell-comics-filled.png'}
           />
         </Link>
-        <div className="nav-links-container" style={{ color: 'white' }}>
+        <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
             SHOP
           </Link>
