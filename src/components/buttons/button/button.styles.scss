@@ -1,0 +1,40 @@
+$primary: #4717f6;
+$secondary: #e7dfdd;
+$detail: #4717f6;
+
+.button-container {
+  min-width: 165px;
+  width: auto;
+  height: 40px;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+  border-radius: 2px;
+  padding: 0px;
+  font-size: 15px;
+  background-color: $primary;
+  color: $secondary;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: $secondary;
+    color: $primary;
+    border: 1px solid $detail;
+  }
+
+  &.inverted {
+    background-color: $secondary;
+    color: $primary;
+    border: 1px solid $detail;
+
+    &:hover {
+      background-color: $primary;
+      color: $secondary;
+      border: none;
+    }
+  }
+}

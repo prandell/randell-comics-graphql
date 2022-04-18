@@ -1,20 +1,23 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from 'firebase/app'
 import {
   getAuth,
-  signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
   Auth,
   UserCredential,
-  User
+  User,
+  createUserWithEmailAndPassword
 } from 'firebase/auth'
 import {
   getFirestore,
   doc,
   getDoc,
   setDoc,
-  Firestore
+  Firestore,
+  DocumentReference,
+  DocumentData
 } from 'firebase/firestore'
+import { RandellComicsUser } from '../../models/user.model'
 
 //Randell Comics Web App Configuration
 //apiKey is not a
@@ -30,22 +33,31 @@ const firebaseConfig: FirebaseOptions = {
 // Initialize Firebase Application
 const firebaseApp: FirebaseApp = initializeApp(firebaseConfig)
 
-const provider: GoogleAuthProvider = new GoogleAuthProvider()
-provider.setCustomParameters({
+const googleProvider: GoogleAuthProvider = new GoogleAuthProvider()
+googleProvider.setCustomParameters({
   prompt: 'select_account'
 })
 
 //Authentication
 export const auth: Auth = getAuth()
 export const signInWithGooglePopup = async (): Promise<UserCredential> =>
-  signInWithPopup(auth, provider)
-export const signInWithGoogleRedirect = async (): Promise<never> =>
-  signInWithRedirect(auth, provider)
+  signInWithPopup(auth, googleProvider)
+export const createAuthUserWithEmailAndPassword = async (
+  email: string,
+  password: string
+): Promise<void | UserCredential> => {
+  if (!email || !password) return
+  return await createUserWithEmailAndPassword(auth, email, password)
+}
 
 // Database
 export const db: Firestore = getFirestore()
 //create a user in our database whenever that user uses Google Auth to sign in
-export const createUserDocumentFromAuth = async (userAuth: User) => {
+export const createUserDocumentFromAuth = async (
+  userAuth: User,
+  extra: RandellComicsUser = {}
+): Promise<void | DocumentReference<DocumentData>> => {
+  if (!userAuth) return
   //Get document reference
   const userDocRef = doc(db, 'users', userAuth.uid)
   //Get snapshot of the reference
@@ -57,7 +69,7 @@ export const createUserDocumentFromAuth = async (userAuth: User) => {
     const createdAt = new Date()
 
     try {
-      await setDoc(userDocRef, { displayName, email, createdAt })
+      await setDoc(userDocRef, { displayName, email, createdAt, ...extra })
     } catch (e) {
       console.log(`Error while creating new user. Message ${e}`)
     }
