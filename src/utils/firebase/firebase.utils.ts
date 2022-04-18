@@ -6,7 +6,8 @@ import {
   Auth,
   UserCredential,
   User,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'firebase/auth'
 import {
   getFirestore,
@@ -48,6 +49,13 @@ export const createAuthUserWithEmailAndPassword = async (
 ): Promise<void | UserCredential> => {
   if (!email || !password) return
   return await createUserWithEmailAndPassword(auth, email, password)
+}
+export const signInUserWithEmailAndPassword = async (
+  email: string,
+  password: string
+): Promise<void | UserCredential> => {
+  if (!email || !password) return
+  return await signInWithEmailAndPassword(auth, email, password)
 }
 
 // Database
