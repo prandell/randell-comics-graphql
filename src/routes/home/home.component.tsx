@@ -9,7 +9,7 @@ function Home(): JSX.Element {
         <img
           className="shop-title-logo"
           alt={'Randell Comics Logo'}
-          src={'randell-comics.png'}
+          src={'randell-comics-filled.png'}
         />
         <p className="shop-title-text">Randell Comics</p>
       </h1>

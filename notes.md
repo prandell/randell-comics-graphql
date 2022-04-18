@@ -39,3 +39,6 @@ This document was used to capture things I learnt while creating this project
 ## Firebase
 
 - Hosting tool service by Google. Mainly gives us access to a database.
+- We can easily integrate Google Authentication to enable us to make CRUD operations on Firebase
+- `firebase` library has a lot of sub-libaries. `initiliazeApp` from `firebase/app` creates an app instance for you based on a configuration. It helps link this instance to the one we created in the firebase console.
+- the Firebase console can be used to create authentication, database instances and more.

@@ -1,4 +1,4 @@
-# Randell-Comics
+# Randell Comics
 
 This is a sample production-scale Comic Book shop website built using React@18 + Typescript
 
@@ -10,7 +10,7 @@ I used the following course to help create this application:
 
 ## Table of Contents
 
-- [Typescript React App](#Typescript-React-App)
+- [Randell Comics](#Randell-Comics)
   - [General Information](#general-information)
   - [Table of Contents](#table-of-contents)
   - [Technology Used](#technology-used)
@@ -21,12 +21,13 @@ I used the following course to help create this application:
 
 ## Technology Used
 
-Notable technologies are `React@18`, `Typescript`, `ReactRouter@6`
+Notable technologies are `React@18`, `Typescript`, `ReactRouter@6`, `Firebase@9`
 
 - `react`: ^18.0.0
 - `typescript`: ^4.6.3
 - `react-dom`: ^18.0.0
 - `react-router-dom`: ^6.3.0
+- `firebase`: ^9.6.11,
 - `react-scripts`: 5.0.0
 - `web-vitals`: ^2.1.4
 - `@types/node`: ^16.11.26
@@ -46,9 +47,9 @@ To be continued
 ### Run
 
 ```bash
-cd ./crwn-clothing-v2-typescript
+cd ./randell-comics
 npm install
-npm run
+npm run start
 ```
 
 This will then launch the application within the native web browser on your computer.
@@ -56,7 +57,7 @@ This will then launch the application within the native web browser on your comp
 ### Build
 
 ```bash
-cd ./crwn-clothing-v2-typescript
+cd ./randell-comics
 
 npm install
 npm run build
