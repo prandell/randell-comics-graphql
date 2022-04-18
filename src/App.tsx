@@ -1,13 +1,16 @@
 import React from 'react'
 import './App.scss'
-import CategoryMenu from './components/category-menu/category-menu.component'
+import Home from './routes/home/home.component'
+import { Routes, Route } from 'react-router-dom'
+import NavigationBar from './routes/navigation-bar/navigation-bar.component'
 
 function App(): JSX.Element {
   return (
-    <div className="main-container">
-      <h1 className="shop-title">randell's Comic Shop!</h1>
-      <CategoryMenu />
-    </div>
+    <Routes>
+      <Route path="/" element={<NavigationBar />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   )
 }
 

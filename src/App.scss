@@ -8,12 +8,34 @@ html {
   background-color: #0e0b16;
 }
 
+@font-face {
+  font-family: 'Jhiaxus-Oblique';
+  src: url('fonts/Jhiaxus-Oblique.ttf.woff') format('woff'),
+    url('fonts/Jhiaxus-Oblique.ttf.svg#Jhiaxus-Oblique') format('svg'),
+    url('fonts/Jhiaxus-Oblique.ttf.eot'),
+    url('fonts/Jhiaxus-Oblique.ttf.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .shop-title {
-  font-family: 'BadaBoom BB', sans-serif;
+  font-family: 'Jhiaxus-Oblique', sans-serif;
   font-style: normal;
   font-weight: 100;
+  font-size: 300%;
   text-align: center;
   color: #e7dfdd;
+  .shop-title-logo {
+    max-width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+  .shop-title-text {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
 }
 
 /* Palette
@@ -21,4 +43,11 @@ html {
   FUSCHIA #A239CA
   JEWEL #4717F6
   STARK #E7DFDD
+*/
+/* Randell Comics
+#0f1014
+#f9f9f9
+#cbcdf6
+#9da1f3
+#6f76f1
 */

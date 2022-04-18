@@ -2,9 +2,18 @@
 
 This document was used to capture things I learnt while creating this project
 
+## Routing
+
+- `BrowserRouter` component is the top level parent component in index.tsx which enables the router (there are other types of routers in react-router)
+- `Routes` component is then the parent of all `Route` components which take the element/component to be rendered as a prop
+- Nesting routes within routes allows you to persist a parent component while rendering different children (such as a navbar)
+
 ## SCSS
 
 - Allows you to target classes that are direct childern of other classes by nesting the CSS definitions:
+- Still applies to the whole application despite only importing it into one component
+- Lots of logos and brand names can be generated with AI generators
+- `box-sizing: border-box` means that padding doesn't increase the defined dimensions of a component
 
 ```
 .categories-container {
@@ -20,3 +29,13 @@ This document was used to capture things I learnt while creating this project
   }
 }
 ```
+
+## Tips and Tricks
+
+- `Fragment` is a component offered by react to be a parent component that is essentially just an empty component. `Fragment` components don't even appear on the DOM.
+- Fonts can be added to your application from Google Fonts (or elsewhere) and imported to the `index.html` file. After this, they are accessible in CSS rules as a `font-family`
+- Using images that are hosted somewhere is preferrable to adding images to your public folder (but hey what can you do)
+
+## Firebase
+
+- Hosting tool service by Google. Mainly gives us access to a database.
