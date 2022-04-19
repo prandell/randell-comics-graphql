@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Batman 608",
+    "imageUrl": "/product-covers/batman-608-cover.jpg",
+    "price": 25
+  },
+  {
+    "id": 2,
+    "name": "Avengers 233",
+    "imageUrl": "/product-covers/avengers-233-cover.jpg",
+    "price": 18
+  },
+  {
+    "id": 3,
+    "name": "Doom Ultimate",
+    "imageUrl": "/product-covers/doom-cover.jpg",
+    "price": 35
+  },
+  {
+    "id": 4,
+    "name": "X-Men 3",
+    "imageUrl": "/product-covers/xmen-3-cover.jpg",
+    "price": 25
+  },
+  {
+    "id": 5,
+    "name": "The Unstoppable Wasp",
+    "imageUrl": "/product-covers/wasp-1-cover.jpg",
+    "price": 18
+  },
+  {
+    "id": 6,
+    "name": "The Mandalorian",
+    "imageUrl": "/product-covers/mandalorian-12-cover.jpg",
+    "price": 14
+  },
+  {
+    "id": 7,
+    "name": "Black Widow",
+    "imageUrl": "/product-covers/black-widow-1-cover.jpg",
+    "price": 18
+  }
+]

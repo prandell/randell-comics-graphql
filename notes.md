@@ -42,6 +42,8 @@ This document was used to capture things I learnt while creating this project
 - We can easily integrate Google Authentication to enable us to make CRUD operations on Firebase
 - `firebase` library has a lot of sub-libaries. `initiliazeApp` from `firebase/app` creates an app instance for you based on a configuration. It helps link this instance to the one we created in the firebase console.
 - the Firebase console can be used to create authentication, database instances and more.
+- Firebase has a function `onAuthStateChanged` which returns a listener that allows us to perform an action on any change to the authentication state.
+- Firebase actually persists logins across refreshes automatically
 
 ## Context
 
