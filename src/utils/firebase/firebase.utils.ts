@@ -7,7 +7,10 @@ import {
   UserCredential,
   User,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  NextOrObserver
 } from 'firebase/auth'
 import {
   getFirestore,
@@ -50,13 +53,18 @@ export const createAuthUserWithEmailAndPassword = async (
   if (!email || !password) return
   return await createUserWithEmailAndPassword(auth, email, password)
 }
-export const signInUserWithEmailAndPassword = async (
+export const signInAuthUserWithEmailAndPassword = async (
   email: string,
   password: string
 ): Promise<void | UserCredential> => {
   if (!email || !password) return
   return await signInWithEmailAndPassword(auth, email, password)
 }
+export const signOutAuthUser = async (): Promise<void> => {
+  return await signOut(auth)
+}
+export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
+  onAuthStateChanged(auth, callback)
 
 // Database
 export const db: Firestore = getFirestore()

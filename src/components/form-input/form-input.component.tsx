@@ -7,6 +7,7 @@ type FormInputProps = {
   changeHandler: (event: ChangeEvent<HTMLInputElement>) => void
   name: string
   value: string
+  type: string
 }
 
 const FormInput = ({
@@ -14,13 +15,14 @@ const FormInput = ({
   required,
   changeHandler,
   name,
+  type,
   value
 }: FormInputProps): JSX.Element => {
   return (
     <div className="form-input-group">
       <input
         className="form-input"
-        type="text"
+        type={type}
         required={required}
         onChange={changeHandler}
         name={name}

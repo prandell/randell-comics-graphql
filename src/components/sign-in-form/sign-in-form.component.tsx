@@ -1,8 +1,7 @@
 import { AuthErrorCodes } from 'firebase/auth'
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import {
-  createUserDocumentFromAuth,
-  signInUserWithEmailAndPassword,
+  signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup
 } from '../../utils/firebase/firebase.utils'
 import Button from '../buttons/button/button.component'
@@ -35,15 +34,16 @@ const SignInForm = (): JSX.Element => {
   }
 
   const signInWithGoogle = async (): Promise<void> => {
-    const { user } = await signInWithGooglePopup()
-    createUserDocumentFromAuth(user)
+    await signInWithGooglePopup()
   }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
-      const response = await signInUserWithEmailAndPassword(email, password)
-      resetFormInputs()
+      const response = await signInAuthUserWithEmailAndPassword(email, password)
+      if (response) {
+        resetFormInputs()
+      }
     } catch (error: any) {
       switch (error.code) {
         case AuthErrorCodes.INVALID_PASSWORD:
@@ -66,6 +66,7 @@ const SignInForm = (): JSX.Element => {
         <FormInput
           label="Email"
           required
+          type="email"
           changeHandler={handleChange}
           name="email"
           value={email}
@@ -73,6 +74,7 @@ const SignInForm = (): JSX.Element => {
         <FormInput
           label="Password"
           required
+          type="password"
           changeHandler={handleChange}
           name="password"
           value={password}

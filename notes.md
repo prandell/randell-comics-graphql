@@ -42,3 +42,8 @@ This document was used to capture things I learnt while creating this project
 - We can easily integrate Google Authentication to enable us to make CRUD operations on Firebase
 - `firebase` library has a lot of sub-libaries. `initiliazeApp` from `firebase/app` creates an app instance for you based on a configuration. It helps link this instance to the one we created in the firebase console.
 - the Firebase console can be used to create authentication, database instances and more.
+
+## Context
+
+- Due to single direction data flow, passing data from one component to another without "Prop Drilling" is achieved through context - a central/external place we store important state attributes.
+- `createContext` and `Provider` from React allows us to use a component to wrap the parts of our component tree that need to be able to access a particular piece of context

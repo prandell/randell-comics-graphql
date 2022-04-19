@@ -48,6 +48,7 @@ const SignUpForm = (): JSX.Element => {
       if (!response) {
         return
       }
+
       await createUserDocumentFromAuth(response.user, { displayName })
       resetFormInputs()
       // Redirect for successful sign in/create
@@ -70,6 +71,7 @@ const SignUpForm = (): JSX.Element => {
         <FormInput
           label="Display Name"
           required
+          type="text"
           changeHandler={handleChange}
           name="displayName"
           value={displayName}
@@ -80,6 +82,7 @@ const SignUpForm = (): JSX.Element => {
           required
           changeHandler={handleChange}
           name="email"
+          type="email"
           value={email}
         />
         <FormInput
@@ -87,6 +90,7 @@ const SignUpForm = (): JSX.Element => {
           required
           changeHandler={handleChange}
           name="password"
+          type="password"
           value={password}
         />
 
@@ -95,6 +99,7 @@ const SignUpForm = (): JSX.Element => {
           required
           changeHandler={handleChange}
           name="confirmPassword"
+          type="password"
           value={confirmPassword}
         />
         <Button inverted={false} type="submit">
