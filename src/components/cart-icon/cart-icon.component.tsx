@@ -4,7 +4,7 @@ import { CartContext } from '../../contexts/cart.context'
 import './cart-icon.styles.scss'
 
 const CartIcon = (): JSX.Element => {
-  const { cartOpen, setCartOpen } = useContext(CartContext)
+  const { cartOpen, setCartOpen, cartCount } = useContext(CartContext)
   const toggleCartOpen: MouseEventHandler<HTMLDivElement> = () => {
     setCartOpen(!cartOpen)
   }
@@ -12,7 +12,7 @@ const CartIcon = (): JSX.Element => {
   return (
     <div onClick={toggleCartOpen} className="cart-icon-container">
       <ShoppingIcon className="cart-icon" />
-      <span className="cart-count">0</span>
+      <span className="cart-count">{cartCount}</span>
     </div>
   )
 }

@@ -7,7 +7,6 @@ const ThemeToggle = (): JSX.Element => {
   const { theme, setTheme } = useContext(ThemeContext)
 
   const clickHandler = () => {
-    console.log('hello')
     theme === 'dark' ? setTheme('light') : setTheme('dark')
   }
 

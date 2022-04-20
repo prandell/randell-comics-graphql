@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { ICartItem } from '../models/cart-item.model'
 import { Product } from '../models/product.model'
 
@@ -7,6 +7,7 @@ export interface ICartContext {
   cartItems: ICartItem[]
   addItemToCart: (productToAdd: Product) => void
   setCartOpen: React.Dispatch<React.SetStateAction<boolean>>
+  cartCount: number
 }
 
 const addCartItem = (cartItems: ICartItem[], productToAdd: Product) => {
@@ -29,13 +30,22 @@ type CartProviderProps = { children: React.ReactNode }
 const CartProvider = ({ children }: CartProviderProps): JSX.Element => {
   const [cartOpen, setCartOpen] = useState<boolean>(false)
   const [cartItems, setCartItems] = useState<ICartItem[]>([])
+  const [cartCount, setCartCount] = useState<number>(0)
+
+  useEffect(() => {
+    const newCartCount = cartItems.reduce(
+      (total: number, cI: ICartItem) => total + cI.quantity,
+      0
+    )
+    setCartCount(newCartCount)
+  }, [cartItems])
 
   const addItemToCart = (productToAdd: Product) => {
     setCartItems(addCartItem(cartItems, productToAdd))
   }
   return (
     <CartContext.Provider
-      value={{ cartOpen, setCartOpen, cartItems, addItemToCart }}
+      value={{ cartOpen, setCartOpen, cartItems, addItemToCart, cartCount }}
     >
       {children}
     </CartContext.Provider>
