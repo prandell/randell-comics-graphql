@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
 import CartIcon from '../../components/cart-icon/cart-icon.component'
+import ThemeToggle from '../../components/theme-toggle/theme-toggle.component'
 import { CartContext } from '../../contexts/cart.context'
 import { UserContext } from '../../contexts/user.context'
 import { signOutAuthUser } from '../../utils/firebase/firebase.utils'
@@ -10,7 +11,6 @@ import './navigation-bar.styles.scss'
 
 const NavigationBar = () => {
   const { currentUser } = useContext(UserContext)
-
   const { cartOpen } = useContext(CartContext)
 
   const signOutHandler = async (): Promise<void> => {
@@ -39,6 +39,7 @@ const NavigationBar = () => {
               SIGN IN
             </Link>
           )}
+          <ThemeToggle />
           <CartIcon />
         </div>
         {cartOpen && <CartDropdown />}

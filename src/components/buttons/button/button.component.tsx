@@ -1,17 +1,24 @@
 import React from 'react'
 import './button.styles.scss'
 
-type ButtonProps = {
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   children: any
   inverted: boolean
-  type: 'submit' | 'reset' | 'button' | undefined
 }
 
-const Button = ({ children, inverted, type }: ButtonProps): JSX.Element => {
+const Button = ({
+  children,
+  inverted,
+  ...otherProps
+}: ButtonProps): JSX.Element => {
   return (
     <button
       className={`button-container ${inverted ? 'inverted' : ''}`}
-      type={type}
+      {...otherProps}
     >
       {children}
     </button>

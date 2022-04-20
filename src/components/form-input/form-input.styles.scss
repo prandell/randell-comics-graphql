@@ -1,12 +1,6 @@
 $sub-color: #c9c3c1;
-$main-color: #e7dfdd;
+$main-color: var(--primary-colour);
 
-/* Palette
-  VOID #0E0B16
-  FUSCHIA #A239CA
-  JEWEL #4717F6
-  STARK #E7DFDD
-*/
 @mixin shrinkLabel {
   top: -14px;
   font-size: 12px;
@@ -19,7 +13,7 @@ $main-color: #e7dfdd;
 
   .form-input {
     background: none;
-    background-color: #0e0b16;
+    background-color: var(--secondary-colour);
     color: $sub-color;
     font-size: 18px;
     padding: 10px 10px 10px 5px;

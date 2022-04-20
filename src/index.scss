@@ -1,7 +1,19 @@
+:root {
+  --primary-colour: #0e0b16;
+  --secondary-colour: #e7dfdd;
+  --accent-colour: #4717f6;
+}
+
+[data-theme='dark'] {
+  --primary-colour: #e7dfdd;
+  --secondary-colour: #0e0b16;
+  --accent-colour: #4717f6;
+}
+
 body {
   margin: 0;
-  padding: 20px 40px;
-  color: #e7dfdd;
+  background-color: var(--secondary-colour);
+  color: var(--primary-colour);
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,7 +25,7 @@ code {
 }
 
 a {
-  color: #e7dfdd;
+  color: var(--primary-colour);
   text-decoration: none;
   a:visited {
     text-decoration: none;

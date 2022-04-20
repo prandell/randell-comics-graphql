@@ -1,11 +1,17 @@
-.App {
-  text-align: center;
+.app {
+  height: 100%;
+  background-color: var(--secondary-colour);
+  padding: 20px 40px;
 }
 
-body,
 html {
   height: 100%;
-  background-color: #0e0b16;
+  background-color: var(--secondary-colour);
+}
+
+body {
+  height: 100%;
+  background-color: var(--secondary-colour);
 }
 
 @font-face {
@@ -24,7 +30,7 @@ html {
   font-weight: 100;
   font-size: 300%;
   text-align: center;
-  color: #e7dfdd;
+  color: var(--primary-colour);
   .shop-title-logo {
     max-width: 100px;
     display: inline-block;

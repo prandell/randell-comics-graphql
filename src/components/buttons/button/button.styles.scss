@@ -1,6 +1,7 @@
-$primary: #4717f6;
-$secondary: #e7dfdd;
-$detail: #4717f6;
+$primary: var(--accent-colour);
+$secondary: var(--primary-colour);
+$detail: var(--accent-colour);
+$white: #e7dfdd;
 
 .button-container {
   min-width: 165px;
@@ -12,7 +13,7 @@ $detail: #4717f6;
   padding: 0px;
   font-size: 15px;
   background-color: $primary;
-  color: $secondary;
+  color: $white;
   text-transform: uppercase;
   font-weight: bolder;
   border: none;
@@ -21,19 +22,19 @@ $detail: #4717f6;
   justify-content: center;
 
   &:hover {
-    background-color: $secondary;
+    background-color: $white;
     color: $primary;
     border: 1px solid $detail;
   }
 
   &.inverted {
-    background-color: $secondary;
+    background-color: $white;
     color: $primary;
     border: 1px solid $detail;
 
     &:hover {
       background-color: $primary;
-      color: $secondary;
+      color: $white;
       border: none;
     }
   }

@@ -21,7 +21,7 @@
   .nav-links-container {
     width: 50%;
     height: 100%;
-    color: #e7dfdd;
+    color: var(--primary-colour);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -32,10 +32,3 @@
     }
   }
 }
-
-/* Palette
-  VOID #0E0B16
-  FUSCHIA #A239CA
-  JEWEL #4717F6
-  STARK #E7DFDD
-*/
