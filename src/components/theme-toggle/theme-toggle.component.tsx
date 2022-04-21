@@ -4,10 +4,10 @@ import { ThemeContext } from '../../contexts/theme.context'
 import './theme-toggle.styles.scss'
 
 const ThemeToggle = (): JSX.Element => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, setGlobalTheme } = useContext(ThemeContext)
 
   const clickHandler = () => {
-    theme === 'dark' ? setTheme('light') : setTheme('dark')
+    theme === 'dark' ? setGlobalTheme('light') : setGlobalTheme('dark')
   }
 
   return (
