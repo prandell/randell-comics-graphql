@@ -1,4 +1,4 @@
-export type Category = {
+export type CategoryBanner = {
   id: number
   title: string
   subtitle: string

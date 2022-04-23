@@ -17,7 +17,14 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   }
   return (
     <div className="product-card-container">
-      <img alt={name} src={imageUrl} />
+      <img
+        alt={name}
+        src={imageUrl}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null
+          currentTarget.src = '/image-failed.jpg'
+        }}
+      />
       <div className="footer">
         <span className="name">{name}</span>
         <span className="price">{`$${price}`}</span>

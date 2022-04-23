@@ -1,4 +1,5 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from 'firebase/app'
+import { getStorage, ref, getDownloadURL } from 'firebase/storage'
 import {
   getAuth,
   signInWithPopup,
@@ -19,9 +20,15 @@ import {
   setDoc,
   Firestore,
   DocumentReference,
-  DocumentData
+  DocumentData,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+  QueryDocumentSnapshot
 } from 'firebase/firestore'
 import { RandellComicsUser } from '../../models/user.model'
+import { ComicCategory } from '../../models/product-collection.model'
 
 //Randell Comics Web App Configuration
 //apiKey is not a
@@ -91,4 +98,51 @@ export const createUserDocumentFromAuth = async (
     }
   }
   return userDocRef
+}
+export const addComicCategoriesAndDocuments = async (
+  collectionKey: string,
+  collections: ComicCategory[]
+) => {
+  const collectionRef = collection(db, collectionKey)
+  const batch = writeBatch(db)
+
+  collections.forEach((c: ComicCategory) => {
+    const docRef = doc(collectionRef, c.title.toLowerCase())
+    batch.set(docRef, c)
+  })
+
+  await batch.commit()
+  console.log('collections uploaded')
+}
+export const getComicCollectionsAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories')
+
+  const q = query(collectionRef)
+
+  const querySnapshot = await getDocs(q)
+  const categoryMap = querySnapshot.docs.reduce(
+    (
+      acc: { [key: string]: ComicCategory },
+      docSnapshot: QueryDocumentSnapshot<DocumentData>
+    ) => {
+      const { title, items } = docSnapshot.data() as ComicCategory
+      acc[title.toLowerCase()] = { title, items }
+      return acc
+    },
+    {}
+  )
+
+  return categoryMap
+}
+
+//Storage -- never got this working?
+const storage = getStorage()
+export const getImageUrl = (imageName: string, domElement: string) => {
+  const imageRef = ref(storage, imageName)
+  getDownloadURL(imageRef).then((url: string) => {
+    // Or inserted into an <img> element
+    console.log('got here?')
+    const imgs = document.getElementsByClassName('myimg')
+    Array.from(imgs).forEach((e: any) => e.setAttribute('src', url))
+  })
 }

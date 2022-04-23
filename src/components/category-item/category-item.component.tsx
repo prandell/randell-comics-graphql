@@ -1,9 +1,9 @@
 import React from 'react'
-import { Category } from '../../models/category.model'
+import { CategoryBanner } from '../../models/category.model'
 import './category-item.styles.scss'
 
 type CategoryItemProps = {
-  category: Category
+  category: CategoryBanner
 }
 
 const CategoryItem = ({ category }: CategoryItemProps): JSX.Element => {
