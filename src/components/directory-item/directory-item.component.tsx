@@ -1,20 +1,20 @@
 import React from 'react'
 import { CategoryBanner } from '../../models/category.model'
-import './category-item.styles.scss'
+import './directory-item.styles.scss'
 
-type CategoryItemProps = {
+type DirectoryItemProps = {
   category: CategoryBanner
 }
 
-const CategoryItem = ({ category }: CategoryItemProps): JSX.Element => {
+const DirectoryItem = ({ category }: DirectoryItemProps): JSX.Element => {
   const { title, subtitle, imageUrl } = category
   return (
-    <div className="category-container">
+    <div className="directory-item-container">
       <div
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div className="category-body-container">
+      <div className="directory-body-container">
         <h2>{title}</h2>
         <p>{subtitle}</p>
       </div>
@@ -22,4 +22,4 @@ const CategoryItem = ({ category }: CategoryItemProps): JSX.Element => {
   )
 }
 
-export default CategoryItem
+export default DirectoryItem

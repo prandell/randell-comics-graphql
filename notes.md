@@ -7,6 +7,7 @@ This document was used to capture things I learnt while creating this project
 - `BrowserRouter` component is the top level parent component in index.tsx which enables the router (there are other types of routers in react-router)
 - `Routes` component is then the parent of all `Route` components which take the element/component to be rendered as a prop
 - Nesting routes within routes allows you to persist a parent component while rendering different children (such as a navbar)
+- Using the `*` symbol within a route indicates that there are wildcard subroutes
 
 ## SCSS
 
@@ -32,7 +33,7 @@ This document was used to capture things I learnt while creating this project
 
 ## Tips and Tricks
 
-- `Fragment` is a component offered by react to be a parent component that is essentially just an empty component. `Fragment` components don't even appear on the DOM.
+- `Fragment` is a component offered by react to be a parent component that is essentially just an empty component. `Fragment` components don't even appear on the DOM. `<></>` is a shorthand version.
 - Fonts can be added to your application from Google Fonts (or elsewhere) and imported to the `index.html` file. After this, they are accessible in CSS rules as a `font-family`
 - Using images that are hosted somewhere is preferrable to adding images to your public folder (but hey what can you do)
 
@@ -44,8 +45,11 @@ This document was used to capture things I learnt while creating this project
 - the Firebase console can be used to create authentication, database instances and more.
 - Firebase has a function `onAuthStateChanged` which returns a listener that allows us to perform an action on any change to the authentication state.
 - Firebase actually persists logins across refreshes automatically
+- Firebases database service is Firestore
+- Firebase also offers storage for static content like images. I had some trouble using the libraries to retrieve them, so I actually used the google cloud links and made them public.
 
 ## Context
 
 - Due to single direction data flow, passing data from one component to another without "Prop Drilling" is achieved through context - a central/external place we store important state attributes.
 - `createContext` and `Provider` from React allows us to use a component to wrap the parts of our component tree that need to be able to access a particular piece of context
+- context can even be used to alter SCSS variables (which allows for a theme toggle)

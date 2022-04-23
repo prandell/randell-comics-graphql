@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CategoryBanner } from '../../models/category.model'
-import CategoryItem from '../category-item/category-item.component'
+import DirectoryItem from '../directory-item/directory-item.component'
 import './category-menu.styles.scss'
 
 const CategoryMenu = () => {
@@ -42,7 +42,7 @@ const CategoryMenu = () => {
   return (
     <div className="categories-menu">
       {categories.map((c: CategoryBanner) => (
-        <CategoryItem key={c.id} category={c} />
+        <DirectoryItem key={c.id} category={c} />
       ))}
     </div>
   )

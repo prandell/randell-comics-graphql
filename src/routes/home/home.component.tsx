@@ -1,5 +1,6 @@
 import React from 'react'
 import CategoryMenu from '../../components/category-menu/category-menu.component'
+import './home.styles.scss'
 
 function Home(): JSX.Element {
   return (
