@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useNavigate } from 'react-router'
 import { CategoryBanner } from '../../models/category.model'
-import './directory-item.styles.scss'
+import * as Styled from './directory-item.styles'
 
 type DirectoryItemProps = {
   category: CategoryBanner
@@ -8,17 +9,19 @@ type DirectoryItemProps = {
 
 const DirectoryItem = ({ category }: DirectoryItemProps): JSX.Element => {
   const { title, subtitle, imageUrl } = category
+  const navigate = useNavigate()
+  const handleOnClick = useCallback(
+    () => navigate(`/shop/${title.toLowerCase()}`),
+    [navigate, title]
+  )
   return (
-    <div className="directory-item-container">
-      <div
-        className="background-image"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
-      <div className="directory-body-container">
+    <Styled.DirectoryItemContainer onClick={handleOnClick}>
+      <Styled.BackgroundImage style={{ backgroundImage: `url(${imageUrl})` }} />
+      <Styled.DirectoryBodyContainer>
         <h2>{title}</h2>
         <p>{subtitle}</p>
-      </div>
-    </div>
+      </Styled.DirectoryBodyContainer>
+    </Styled.DirectoryItemContainer>
   )
 }
 

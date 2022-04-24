@@ -4,7 +4,7 @@ import ProductCard from '../../components/product-card/product-card.component'
 import { CategoriesContext } from '../../contexts/categories.context'
 import { ComicCategory } from '../../models/product-collection.model'
 import { Product } from '../../models/product.model'
-import './category.styles.scss'
+import * as Styled from './category.styles'
 
 const Category = () => {
   const { categoryName } = useParams()
@@ -19,16 +19,16 @@ const Category = () => {
 
   const { items, title } = category
   return (
-    <div className="category-container">
-      <span className="title">{title}</span>
-      <hr className="line-break" />
-      <div className="category-product-grid">
+    <Styled.CategoryContainer>
+      <Styled.Title>{title}</Styled.Title>
+      <Styled.LineBreak />
+      <Styled.ProductGrid>
         {items &&
           items.map((product: Product) => {
             return <ProductCard key={product.id} product={product} />
           })}
-      </div>
-    </div>
+      </Styled.ProductGrid>
+    </Styled.CategoryContainer>
   )
 }
 

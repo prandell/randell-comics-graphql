@@ -1,19 +1,18 @@
 import React from 'react'
 import CategoryMenu from '../../components/category-menu/category-menu.component'
-import './home.styles.scss'
+import * as Styled from './home.styles'
 
 function Home(): JSX.Element {
   return (
     <div className="main-container">
-      <h1 className="shop-title">
+      <Styled.ShopTitle>
         {' '}
-        <img
-          className="shop-title-logo"
+        <Styled.ShopTitleLogo
           alt={'Randell Comics Logo'}
           src={'randell-comics-filled.png'}
         />
-        <p className="shop-title-text">Randell Comics</p>
-      </h1>
+        <Styled.ShopTitleText>Randell Comics</Styled.ShopTitleText>
+      </Styled.ShopTitle>
       <CategoryMenu />
     </div>
   )

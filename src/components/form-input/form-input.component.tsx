@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import './form-input.styles.scss'
+import * as Styled from './form-input.styles'
 
 type FormInputProps = {
   label: string
@@ -19,19 +19,18 @@ const FormInput = ({
   value
 }: FormInputProps): JSX.Element => {
   return (
-    <div className="form-input-group">
-      <input
-        className="form-input"
+    <Styled.FormInputGroup>
+      <Styled.FormInput
         type={type}
         required={required}
         onChange={changeHandler}
         name={name}
         value={value}
-      ></input>
-      <label className={`${value.length ? 'shrink' : ''} form-input-label`}>
+      ></Styled.FormInput>
+      <Styled.FormInputLabel className={`${value.length ? 'shrink' : ''}`}>
         {label}
-      </label>
-    </div>
+      </Styled.FormInputLabel>
+    </Styled.FormInputGroup>
   )
 }
 

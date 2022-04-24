@@ -20,6 +20,7 @@ $white: #e7dfdd;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  transition: 0.2s ease-out;
 
   &:hover {
     background-color: $white;

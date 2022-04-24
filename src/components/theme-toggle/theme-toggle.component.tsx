@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
-import { ReactComponent as ThemeIcon } from '../../assets/theme-toggle.svg'
 import { ThemeContext } from '../../contexts/theme.context'
-import './theme-toggle.styles.scss'
+import * as Styled from './theme-toggle.styles'
 
 const ThemeToggle = (): JSX.Element => {
   const { theme, setGlobalTheme } = useContext(ThemeContext)
@@ -11,9 +10,9 @@ const ThemeToggle = (): JSX.Element => {
   }
 
   return (
-    <div onClick={clickHandler} className="theme-toggle">
-      <ThemeIcon className="theme-icon" />
-    </div>
+    <Styled.ThemeToggle onClick={clickHandler}>
+      <Styled.ThemeIcon className="theme-icon" />
+    </Styled.ThemeToggle>
   )
 }
 

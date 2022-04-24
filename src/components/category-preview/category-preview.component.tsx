@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ComicCategory } from '../../models/product-collection.model'
 import { Product } from '../../models/product.model'
 import ProductCard from '../product-card/product-card.component'
-import './category-preview.styles.scss'
+import * as Styled from './category-preview.styles'
 
 type CategoryPreviewProps = {
   category: ComicCategory
@@ -12,21 +12,21 @@ type CategoryPreviewProps = {
 const CategoryPreview = ({ category }: CategoryPreviewProps): JSX.Element => {
   const { title, items } = category
   return (
-    <div className="category-preview-container">
-      <h2 className="title-container">
+    <Styled.CategoryPreviewContainer>
+      <Styled.TitleContainer>
         <Link to={title.toLowerCase()}>
-          <span className="title">{title}</span>
+          <Styled.Title>{title}</Styled.Title>
         </Link>
-      </h2>
-      <hr className="line-break" />
-      <div className="preview">
+      </Styled.TitleContainer>
+      <Styled.LineBreak />
+      <Styled.Preview>
         {items
           .filter((_, idx) => idx < 4)
           .map((product: Product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-      </div>
-    </div>
+      </Styled.Preview>
+    </Styled.CategoryPreviewContainer>
   )
 }
 

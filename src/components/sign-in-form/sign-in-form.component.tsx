@@ -7,7 +7,7 @@ import {
 import Button from '../buttons/button/button.component'
 import GoogleButton from '../buttons/google-button/google-button.component'
 import FormInput from '../form-input/form-input.component'
-import './sign-in-form.styles.scss'
+import * as Styled from './sign-in-form.styles'
 
 type SignInFormInputs = {
   email: string
@@ -59,7 +59,7 @@ const SignInForm = (): JSX.Element => {
   }
 
   return (
-    <div className="sign-in-container">
+    <Styled.SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your preferred method</span>
       <form onSubmit={handleSubmit} className="sign-in-form">
@@ -79,14 +79,14 @@ const SignInForm = (): JSX.Element => {
           name="password"
           value={password}
         />
-        <div className="buttons-container">
+        <Styled.ButtonsContainer>
           <Button inverted={false} type="submit">
             Sign In
           </Button>
           <GoogleButton clickHandler={signInWithGoogle} />
-        </div>
+        </Styled.ButtonsContainer>
       </form>
-    </div>
+    </Styled.SignInContainer>
   )
 }
 

@@ -1,35 +1,35 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 import { CartContext } from '../../contexts/cart.context'
 import { ICartItem } from '../../models/cart-item.model'
-import './checkout.styles.scss'
+import * as Styled from './checkout.styles'
 
 const Checkout = () => {
   const { cartItems, cartTotal } = useContext(CartContext)
   return (
-    <div className="checkout-container">
-      <div className="checkout-header">
-        <div className="header-column">
+    <Styled.CheckoutContainer>
+      <Styled.CheckoutHeader>
+        <Styled.HeaderColumn>
           <span>Product</span>
-        </div>
-        <div className="header-column">
+        </Styled.HeaderColumn>
+        <Styled.HeaderColumn>
           <span>Description</span>
-        </div>
-        <div className="header-column">
+        </Styled.HeaderColumn>
+        <Styled.HeaderColumn>
           <span>Quantity</span>
-        </div>
-        <div className="header-column">
+        </Styled.HeaderColumn>
+        <Styled.HeaderColumn>
           <span>Price</span>
-        </div>
-        <div className="header-column">
+        </Styled.HeaderColumn>
+        <Styled.HeaderColumn>
           <span>Remove</span>
-        </div>
-      </div>
+        </Styled.HeaderColumn>
+      </Styled.CheckoutHeader>
       {cartItems.map((i: ICartItem) => (
         <CheckoutItem key={i.product.id} cartItem={i} />
       ))}
-      <span className="total">{`Total: $${cartTotal}`}</span>
-    </div>
+      <Styled.Total>{`Total: $${cartTotal}`}</Styled.Total>
+    </Styled.CheckoutContainer>
   )
 }
 

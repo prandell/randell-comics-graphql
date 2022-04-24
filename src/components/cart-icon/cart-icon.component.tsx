@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useContext } from 'react'
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-cart.svg'
 import { CartContext } from '../../contexts/cart.context'
-import './cart-icon.styles.scss'
+import './cart-icon.styles'
+import * as Styled from './cart-icon.styles'
 
 const CartIcon = (): JSX.Element => {
   const { cartOpen, setCartOpen, cartCount } = useContext(CartContext)
@@ -10,10 +10,10 @@ const CartIcon = (): JSX.Element => {
   }
 
   return (
-    <div onClick={toggleCartOpen} className="cart-icon-container">
-      <ShoppingIcon className="cart-icon" />
-      <span className="cart-count">{cartCount}</span>
-    </div>
+    <Styled.CartIconContainer onClick={toggleCartOpen}>
+      <Styled.CartIconSvg />
+      <Styled.CartCount>{cartCount}</Styled.CartCount>
+    </Styled.CartIconContainer>
   )
 }
 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 import { Product } from '../../models/product.model'
 import Button from '../buttons/button/button.component'
-import './product-card.styles.scss'
+import * as Styled from './product-card.styles'
 
 type ProductCardProps = {
   product: Product
@@ -16,8 +16,8 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
     addItemToCart(product)
   }
   return (
-    <div className="product-card-container">
-      <img
+    <Styled.ProductCardContainer>
+      <Styled.ProductCardImage
         alt={name}
         src={imageUrl}
         onError={({ currentTarget }) => {
@@ -25,14 +25,14 @@ const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
           currentTarget.src = '/image-failed.jpg'
         }}
       />
-      <div className="footer">
-        <span className="name">{name}</span>
-        <span className="price">{`$${price}`}</span>
-      </div>
+      <Styled.Footer>
+        <Styled.Name>{name}</Styled.Name>
+        <Styled.Price>{`$${price}`}</Styled.Price>
+      </Styled.Footer>
       <Button onClick={addProductToCart} inverted={true}>
         Add to Cart
       </Button>
-    </div>
+    </Styled.ProductCardContainer>
   )
 }
 

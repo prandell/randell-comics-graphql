@@ -1,6 +1,7 @@
 :root {
-  --primary-colour: #0e0b16;
+  --primary-colour: #515053;
   --secondary-colour: #e7dfdd;
+  --secondary-text-colour: #747272;
   --accent-colour: #6e76fb;
   --secondary-accent-colour: #4717f6;
 }
@@ -8,6 +9,7 @@
 [data-theme='dark'] {
   --primary-colour: #e7dfdd;
   --secondary-colour: #0e0b16;
+  --secondary-text-colour: #cccccc;
   --accent-colour: #6e76fb;
   --secondary-accent-colour: #4717f6;
 }

@@ -14,6 +14,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps): JSX.Element => {
   const [theme, setTheme] = useState<string>('light')
 
   useEffect(() => {
+    document.body.style.fontWeight = 'bold'
     defaultDark ? setGlobalTheme('dark') : setGlobalTheme('light')
   }, [])
 

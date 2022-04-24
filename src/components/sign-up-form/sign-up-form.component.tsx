@@ -6,7 +6,7 @@ import {
 } from '../../utils/firebase/firebase.utils'
 import Button from '../buttons/button/button.component'
 import FormInput from '../form-input/form-input.component'
-import './sign-up-form.styles.scss'
+import * as Styled from './sign-up-form.styles'
 
 type SignUpFormInputs = {
   displayName: string
@@ -64,7 +64,7 @@ const SignUpForm = (): JSX.Element => {
   }
 
   return (
-    <div className="sign-up-container">
+    <Styled.SignUpContainer>
       <h2>Don't have an account?</h2>
       <span>Sign up with your email address</span>
       <form onSubmit={handleSubmit} className="sign-up-form">
@@ -106,7 +106,7 @@ const SignUpForm = (): JSX.Element => {
           Sign Up
         </Button>
       </form>
-    </div>
+    </Styled.SignUpContainer>
   )
 }
 

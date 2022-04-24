@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 import { ICartItem } from '../../models/cart-item.model'
-import './checkout-item.styles.scss'
+import * as Styled from './checkout-item.styles'
 
 type CheckoutItemProps = {
   cartItem: ICartItem
@@ -18,25 +18,23 @@ const CheckoutItem = ({ cartItem }: CheckoutItemProps): JSX.Element => {
   const decrementHandler = () => removeItemFromCart(product)
 
   return (
-    <div className="checkout-item-container" key={id}>
-      <div className="image-container">
-        <img alt={name} src={imageUrl}></img>
-      </div>
-      <span className="name">{name}</span>
-      <span className="quantity">
-        <div onClick={decrementHandler} className="arrow">
+    <Styled.CheckoutItemContainer key={id}>
+      <Styled.ImageContainer>
+        <Styled.Image alt={name} src={imageUrl}></Styled.Image>
+      </Styled.ImageContainer>
+      <Styled.CheckoutItemDetails>{name}</Styled.CheckoutItemDetails>
+      <Styled.QuantityContainer>
+        <Styled.QuantityArrow onClick={decrementHandler}>
           &#10094;
-        </div>
-        <span className="value">{quantity}</span>
-        <div onClick={incrementHandler} className="arrow">
+        </Styled.QuantityArrow>
+        <Styled.QuantityValue>{quantity}</Styled.QuantityValue>
+        <Styled.QuantityArrow onClick={incrementHandler}>
           &#10095;
-        </div>
-      </span>
-      <span className="price">${price}</span>
-      <div onClick={clearHandler} className="remove-button">
-        &#10005;
-      </div>
-    </div>
+        </Styled.QuantityArrow>
+      </Styled.QuantityContainer>
+      <Styled.CheckoutItemDetails>${price}</Styled.CheckoutItemDetails>
+      <Styled.RemoveButton onClick={clearHandler}>&#10005;</Styled.RemoveButton>
+    </Styled.CheckoutItemContainer>
   )
 }
 
