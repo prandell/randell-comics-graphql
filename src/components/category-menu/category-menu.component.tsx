@@ -11,31 +11,36 @@ const CategoryMenu = () => {
         id: 1,
         title: 'New',
         subtitle: 'Shop the latest releases',
-        imageUrl: '/category-covers/new-cover.png'
+        imageUrl: '/category-covers/new-cover.png',
+        route: 'shop/new'
       },
       {
         id: 2,
         title: 'Spider-Man',
         subtitle: "Everyone's favourite web-slinger",
-        imageUrl: '/category-covers/spiderman-cover.png'
+        imageUrl: '/category-covers/spiderman-cover.png',
+        route: 'shop/spider-man'
       },
       {
         id: 3,
         title: 'Batman',
         subtitle: 'The Caped Crusader',
-        imageUrl: '/category-covers/batman-cover.png'
+        imageUrl: '/category-covers/batman-cover.png',
+        route: 'shop/batman'
       },
       {
         id: 4,
         title: 'DC',
         subtitle: 'Shop all DC Comics',
-        imageUrl: '/category-covers/dc-cover.jpeg'
+        imageUrl: '/category-covers/dc-cover.jpeg',
+        route: 'shop/dc'
       },
       {
         id: 5,
         title: 'Marvel',
         subtitle: 'Shop all Marvel Comics',
-        imageUrl: '/category-covers/marvel-cover.png'
+        imageUrl: '/category-covers/marvel-cover.png',
+        route: 'shop/marvel'
       }
     ])
   }, [])

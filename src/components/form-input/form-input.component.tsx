@@ -27,7 +27,7 @@ const FormInput = ({
         name={name}
         value={value}
       ></Styled.FormInput>
-      <Styled.FormInputLabel className={`${value.length ? 'shrink' : ''}`}>
+      <Styled.FormInputLabel shrink={Boolean(value.length)}>
         {label}
       </Styled.FormInputLabel>
     </Styled.FormInputGroup>

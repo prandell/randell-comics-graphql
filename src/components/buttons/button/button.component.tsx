@@ -1,13 +1,13 @@
 import React from 'react'
-import './button.styles.scss'
+import * as Styled from './button.styles'
 
-interface ButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children: any
   inverted: boolean
+}
+
+const getButton = (inverted: boolean) => {
+  return inverted ? Styled.Button : Styled.InvertedButton
 }
 
 const Button = ({
@@ -15,14 +15,8 @@ const Button = ({
   inverted,
   ...otherProps
 }: ButtonProps): JSX.Element => {
-  return (
-    <button
-      className={`button-container ${inverted ? 'inverted' : ''}`}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  )
+  const CustomButton = getButton(inverted)
+  return <CustomButton {...otherProps}>{children}</CustomButton>
 }
 
 export default Button

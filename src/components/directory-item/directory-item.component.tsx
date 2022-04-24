@@ -8,15 +8,12 @@ type DirectoryItemProps = {
 }
 
 const DirectoryItem = ({ category }: DirectoryItemProps): JSX.Element => {
-  const { title, subtitle, imageUrl } = category
+  const { title, subtitle, imageUrl, route } = category
   const navigate = useNavigate()
-  const handleOnClick = useCallback(
-    () => navigate(`/shop/${title.toLowerCase()}`),
-    [navigate, title]
-  )
+  const handleOnClick = useCallback(() => navigate(route), [navigate, route])
   return (
     <Styled.DirectoryItemContainer onClick={handleOnClick}>
-      <Styled.BackgroundImage style={{ backgroundImage: `url(${imageUrl})` }} />
+      <Styled.BackgroundImage imageUrl={imageUrl} />
       <Styled.DirectoryBodyContainer>
         <h2>{title}</h2>
         <p>{subtitle}</p>

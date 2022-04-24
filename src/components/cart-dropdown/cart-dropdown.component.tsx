@@ -16,9 +16,13 @@ const CartDropdown = (): JSX.Element => {
   return (
     <Styled.CartDropdownContainer>
       <Styled.CartItems>
-        {cartItems.map((item: ICartItem) => (
-          <CartItem key={item.product.id} cartItem={item} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((item: ICartItem) => (
+            <CartItem key={item.product.id} cartItem={item} />
+          ))
+        ) : (
+          <Styled.EmptyMessage>Your cart is empty</Styled.EmptyMessage>
+        )}
       </Styled.CartItems>
       <Button onClick={goToCheckoutHandler} type="button" inverted={false}>
         CHECKOUT
