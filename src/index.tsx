@@ -8,21 +8,29 @@ import ThemeProvider from './contexts/theme.context'
 import UserProvider from './contexts/user.context'
 import './index.scss'
 import reportWebVitals from './reportWebVitals'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+
+const client = new ApolloClient({
+  uri: 'https://crwn-clothing.com/',
+  cache: new InMemoryCache()
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <BrowserRouter>
-        <UserProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </CategoriesProvider>
-        </UserProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider>
+        <BrowserRouter>
+          <UserProvider>
+            <CategoriesProvider>
+              <CartProvider>
+                <App />
+              </CartProvider>
+            </CategoriesProvider>
+          </UserProvider>
+        </BrowserRouter>
+      </ThemeProvider>
+    </ApolloProvider>
   </React.StrictMode>
 )
 

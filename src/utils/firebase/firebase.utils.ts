@@ -28,7 +28,7 @@ import {
   QueryDocumentSnapshot
 } from 'firebase/firestore'
 import { RandellComicsUser } from '../../models/user.model'
-import { ComicCategory } from '../../models/product-collection.model'
+import { CategoryMap, ComicCategory } from '../../models/category.model'
 
 //Randell Comics Web App Configuration
 //apiKey is not a
@@ -121,10 +121,7 @@ export const getComicCollectionsAndDocuments = async () => {
 
   const querySnapshot = await getDocs(q)
   const categoryMap = querySnapshot.docs.reduce(
-    (
-      acc: { [key: string]: ComicCategory },
-      docSnapshot: QueryDocumentSnapshot<DocumentData>
-    ) => {
+    (acc: CategoryMap, docSnapshot: QueryDocumentSnapshot<DocumentData>) => {
       const { title, items } = docSnapshot.data() as ComicCategory
       acc[title.toLowerCase()] = { title, items }
       return acc

@@ -9,38 +9,38 @@ const CategoryMenu = () => {
     setCategories([
       {
         id: 1,
-        title: 'New',
-        subtitle: 'Shop the latest releases',
+        title: 'Hats',
+        subtitle: 'The images are misleading',
         imageUrl: '/category-covers/new-cover.png',
-        route: 'shop/new'
+        route: 'shop/hats'
       },
       {
         id: 2,
-        title: 'Spider-Man',
-        subtitle: "Everyone's favourite web-slinger",
+        title: 'Sneakers',
+        subtitle: 'This is using graphQL',
         imageUrl: '/category-covers/spiderman-cover.png',
-        route: 'shop/spider-man'
+        route: 'shop/sneakers'
       },
       {
         id: 3,
-        title: 'Batman',
-        subtitle: 'The Caped Crusader',
+        title: 'Jackets',
+        subtitle: 'But the menu images are still hardcoded',
         imageUrl: '/category-covers/batman-cover.png',
-        route: 'shop/batman'
+        route: 'shop/jackets'
       },
       {
         id: 4,
-        title: 'DC',
-        subtitle: 'Shop all DC Comics',
+        title: 'Mens',
+        subtitle: 'Just click on a category',
         imageUrl: '/category-covers/dc-cover.jpeg',
-        route: 'shop/dc'
+        route: 'shop/mens'
       },
       {
         id: 5,
-        title: 'Marvel',
-        subtitle: 'Shop all Marvel Comics',
+        title: 'Womens',
+        subtitle: "And you'll see graphQL data",
         imageUrl: '/category-covers/marvel-cover.png',
-        route: 'shop/marvel'
+        route: 'shop/womens'
       }
     ])
   }, [])

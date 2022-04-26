@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ComicCategory } from '../../models/product-collection.model'
+import { ComicCategory } from '../../models/category.model'
 import { Product } from '../../models/product.model'
 import ProductCard from '../product-card/product-card.component'
 import * as Styled from './category-preview.styles'

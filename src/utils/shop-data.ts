@@ -1,5 +1,4 @@
-import { ComicCategory } from '../models/product-collection.model'
-
+import { ComicCategory } from '../models/category.model'
 export const SHOP_DATA: ComicCategory[] = [
   {
     title: 'New',

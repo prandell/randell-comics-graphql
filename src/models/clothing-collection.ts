@@ -7,11 +7,12 @@ export type CategoryBanner = {
   route: string
 }
 
-export type ComicCategory = {
+export type ClothingCollection = {
+  id: string
   title: string
   items: Product[]
 }
 
-export type CategoryMap = {
-  [key: string]: ComicCategory
+export type ClothingCategoryMap = {
+  [key: string]: ClothingCollection
 }

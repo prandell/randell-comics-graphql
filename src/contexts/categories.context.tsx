@@ -1,6 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { CategoryMap } from '../models/product-collection.model'
-import { getComicCollectionsAndDocuments } from '../utils/firebase/firebase.utils'
+import { gql, useQuery } from '@apollo/client'
+import { CategoryMap } from '../models/category.model'
+import {
+  ClothingCategoryMap,
+  ClothingCollection
+} from '../models/clothing-collection'
 
 export interface ICategoriesContext {
   categoryMap: CategoryMap
@@ -11,21 +15,44 @@ export const CategoriesContext = createContext<ICategoriesContext>(
   {} as ICategoriesContext
 )
 
+const COLLECTIONS = gql`
+  query {
+    collections {
+      id
+      title
+      items {
+        name
+        price
+        id
+        imageUrl
+      }
+    }
+  }
+`
+
 type CategoriesProviderProps = { children: React.ReactNode }
 
 const CategoriesProvider = ({
   children
 }: CategoriesProviderProps): JSX.Element => {
+  const { data } = useQuery(COLLECTIONS)
   const [categoryMap, setCategoriesMap] = useState<CategoryMap>({})
 
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getComicCollectionsAndDocuments()
-      setCategoriesMap(categoryMap)
-    }
+    if (data) {
+      const { collections } = data
+      const collectionsMap = collections.reduce(
+        (acc: ClothingCategoryMap, collection: ClothingCollection) => {
+          const { title, items, id } = collection
+          acc[title.toLowerCase()] = { id, title, items }
+          return acc
+        },
+        {}
+      )
 
-    getCategoriesMap()
-  }, [])
+      setCategoriesMap(collectionsMap)
+    }
+  }, [data])
 
   return (
     <CategoriesContext.Provider value={{ categoryMap, setCategoriesMap }}>
